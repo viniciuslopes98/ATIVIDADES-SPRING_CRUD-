@@ -11,6 +11,7 @@ import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+
 @Entity
 @Table(name="tb_produto")
 public class Produto {
@@ -30,6 +31,9 @@ public class Produto {
 	@JsonIgnoreProperties("produto")
 	private Categoria categoria;
 	
+	@ManyToOne
+    @JsonIgnoreProperties("produto")
+    private Usuario usuario;
 	
 	public Categoria getCategoria() {
 		return categoria;
@@ -62,4 +66,15 @@ public class Produto {
 	public void setValor(Double valor) {
 		this.valor = valor;
 	}
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+
+
 }
+
